@@ -3,6 +3,7 @@ package bean;
 import java.util.List;
 
 import javax.jws.WebMethod;
+import javax.jws.WebResult;
 import javax.jws.WebService;
 
 import model.Product;
@@ -19,6 +20,7 @@ public interface ProductCatalogInterface {
 	boolean addProduct(String category, String product);
 
 	@WebMethod
+	@WebResult(name="Product")
 	List<Product> getProductv2(String category);
 
 }

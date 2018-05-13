@@ -1,5 +1,11 @@
 package model;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement(name = "Product")
+@XmlType(propOrder = { "price", "name", "sku" })
 public class Product {
 	private String name;
 	private String sku;
@@ -12,6 +18,12 @@ public class Product {
 		this.price = price;
 	}
 
+	// JAXB needs an empty (no-args) constructor
+	public Product() {
+		super();
+	}
+
+	@XmlElement(name = "ProductName")
 	public String getName() {
 		return name;
 	}
